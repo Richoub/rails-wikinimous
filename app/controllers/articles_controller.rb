@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-    def index
+  def index
     @articles = Article.all
   end
 
@@ -12,7 +12,7 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    @article = Article.new(article)
+    @article = Article.new(article_params)
     @article.save
 
     redirect_to article_path(@article)
@@ -20,9 +20,9 @@ class ArticlesController < ApplicationController
 
   def update
     @article = Article.find(params[:id])
-    @article.update(article)
+    @article.update(article_params)
 
-    redirect_to article(@article)
+    redirect_to articles_path
   end
 
   def edit
